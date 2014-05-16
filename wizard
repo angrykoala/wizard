@@ -1,0 +1,88 @@
+#!/bin/bash
+#Wizard Allow you to install and remove binary files and scripts in yout local/bin folder
+#by Demiurgos Software
+#https://github.com/demiurgosoft/wizard
+
+if [ $# -eq 0 ] 
+then echo "No Arguments Provided"
+fi
+if [ $# -eq 1 ] #Only 1 argument
+then
+if [ "$1" == "-help" ] #if the argument is -help show manual
+then
+echo "                Wizard by Demiurgos Software"
+echo "This Program allow you to install and remove programs in /usr/local/bin/"
+echo "Syntaxis: wizard [Option] [Files]"
+echo "Wizard allow the next options"
+echo "   -install (not needed), install files in /usr/local/bin"
+echo "   -list list all your files in /usr/local/bin/ directory"
+echo "   -remove [Files] remove te given files from bin directory"
+echo "   -help show this dialog"
+echo "   -removeall remove ALL your files in bin directory"
+echo "   -copy copy files into your actual directory"
+echo
+else if [ "$1" == "-list" ] #Show all installed Bins if the argument is -list
+then
+ls /usr/local/bin
+else if [ "$1" == "-removeall" ] #remove all installed Bins
+then
+echo "-removeall will remove all your files in /usr/local/bin/"
+read -p "Are you sure? (Y/N) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+echo "removing all Programs"
+ls /usr/local/bin
+sudo rm /usr/local/bin/*
+fi
+else if [ "$1" == "-remove" ] # Error, needed more arguments
+then echo "[-remove] option needs more arguments"
+else if [ "$1" == "-copy" ] #Error
+then echo "[-copy] option needs more arguments"
+else if [ "$1" == "-install" ] #Error
+then echo "[-install] option needs more arguments"
+else                 #if the only argument is not -help or -list, do installation
+echo "Installing "$1
+sudo cp $1 /usr/local/bin/$1
+sudo chmod a+rwx /usr/local/bin/$1
+fi
+fi
+fi
+fi
+fi
+fi
+fi
+
+if [ $# -gt 1 ] #More than 1 argument
+then
+if [ "$1" == "-remove" ]
+then
+
+shift #skips first argument
+echo "Removing "$@ 
+for var in "$@"
+do 
+   sudo rm /usr/local/bin/$var
+done
+else if [ "$1" == "-copy" ]
+then
+shift #skips -copy argument
+echo "Copying "$@
+for var in "$@"
+do
+   cp /usr/local/bin/$var $var
+done
+
+else if [ "$1" == "-install" ]
+then
+shift #skips -install argument
+fi
+echo "Installing "$@
+for var in "$@"
+do
+  sudo cp $var /usr/local/bin/$var
+  sudo chmod a+rwx /usr/local/bin/$var
+done
+fi
+fi
+fi
