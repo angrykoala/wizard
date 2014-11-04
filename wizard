@@ -1,7 +1,7 @@
 #!/bin/bash
-#Wizard Allow you to install and remove binary files and scripts in yout local/bin folder
+#Wizard Allow you to install and remove binary files and scripts in yout /usr/local/bin/ folder
 #by Demiurgos Software
-#https://github.com/demiurgosoft/wizard
+#https://github.com/demiurgosoft/wizard/wiki
 
 if [ $# -eq 0 ] 
 then echo "No Arguments Provided"
@@ -12,11 +12,11 @@ if [ "$1" == "-help" ] #if the argument is -help show manual
 then
 echo "                Wizard by Demiurgos Software"
 echo "This Program allow you to install and remove programs in /usr/local/bin/"
-echo "Syntaxis: wizard [Option] [Files]"
+echo "Syntaxis: wizard [Option] [files]"
 echo "Wizard allow the next options"
-echo "   -install (not needed), install files in /usr/local/bin"
+echo "   -install (not needed), install files in /usr/local/bin/"
 echo "   -list list all your files in /usr/local/bin/ directory"
-echo "   -remove [Files] remove te given files from bin directory"
+echo "   -remove [files] remove te given files from bin directory"
 echo "   -help show this dialog"
 echo "   -removeall remove ALL your files in bin directory"
 echo "   -copy copy files into your actual directory"

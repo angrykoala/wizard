@@ -21,3 +21,6 @@ also, wizard admits some options: "wizard [option] [files]
 
 
 gfxwizard(beta) allows an installation with wizard using a zenity graphical interface (only installation), to use this, you will need to have non graphic wizard installed and zenity
+
+Wizard is Open Source, you can find it here:  https://github.com/demiurgosoft/wizard
+For further documentation check the wizard wiki: https://github.com/demiurgosoft/wizard/wiki
