@@ -1,7 +1,7 @@
 #!/bin/bash
-#Wizard Allow you to install and remove binary files and scripts in yout $DIRECTORY/ folder
-#by @angrykoala
-#https://github.com/angrykoala/wizard
+# Wizard allows you to install and remove binary files and scripts from your /usr/local/bin directory
+# by @angrykoala
+# https://github.com/angrykoala/wizard
 
 DIRECTORY="/usr/local/bin"
 
